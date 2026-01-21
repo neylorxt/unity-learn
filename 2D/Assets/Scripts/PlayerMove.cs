@@ -6,13 +6,15 @@ public class PlayerMove : MonoBehaviour
     private InputSystem_Actions _inputActions;
     public Rigidbody2D playerRigidbody;
     public LayerMask groundLayer;
+    public Animator playerAnimator;
+    public SpriteRenderer playerSpriteRenderer;
 
     // PLAYER MOVEMENT VARIABLES
     private Vector3 velocity = Vector3.zero;
     public float moveSpeed = 250f;
     public float jumpForce = 5f;
 
-    private bool isJumping = false;
+    // private bool isJumping = false;
 
     // GROUND CHECK VARIABLES
     private bool isGrounded = true;
@@ -68,6 +70,12 @@ public class PlayerMove : MonoBehaviour
         isGrounded = hit != null;
 
         MovePlayer(moveHorizontal);
+
+        // Change direction du sprite en fonction de la direction du mouvement
+        Flip(playerRigidbody.linearVelocity.x);
+
+        float characterVelocityX = Math.Abs(playerRigidbody.linearVelocity.x);
+        playerAnimator.SetFloat("speed", characterVelocityX);
     }
 
     void MovePlayer(float moveHorizontal)
@@ -82,13 +90,25 @@ public class PlayerMove : MonoBehaviour
     {
         if (isGrounded)
         {
-            isJumping = true;
+            // isJumping = true;
 
             Vector2 v = playerRigidbody.linearVelocity;
             v.y = 0f; // optionnel, pour avoir un saut clean
             playerRigidbody.linearVelocity = v;
 
             playerRigidbody.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+        }
+    }
+
+    void Flip( float velocityX )
+    {
+        if ( velocityX > 0.1f )
+        {
+            playerSpriteRenderer.flipX = false;
+        }
+        else if ( velocityX < -0.1f )
+        {
+            playerSpriteRenderer.flipX = true;
         }
     }
 }
