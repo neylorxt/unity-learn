@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidbody;
 
     private float _moveSpeed = 5f;
-    public float _rotationSpeed = 120f; // un peu plus rapide
+    public float _rotationSpeed = 120f; 
 
     private void Awake()
     {
@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Update is called once per frame
     private void FixedUpdate()
     {
         MoveAndRotate();
@@ -30,8 +31,8 @@ public class PlayerController : MonoBehaviour
 
     private void MoveAndRotate()
     {
-        float horizontal = _joystick.Horizontal;  // gauche / droite
-        float vertical = _joystick.Vertical;    // avant / arrière
+        float horizontal = _joystick.Horizontal;
+        float vertical = _joystick.Vertical; 
 
         // 1) Rotation en Y (gauche/droite) en continu
         if (Mathf.Abs(horizontal) > 0.2f)

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8322219345547166865}
-  - component: {fileID: 1088312547829426317}
   - component: {fileID: 122902939784913593}
   - component: {fileID: 5714530536651485979}
   m_Layer: 0
@@ -36,20 +35,6 @@ Transform:
   - {fileID: 6557287959804881112}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1088312547829426317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579750175073679923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d4f29fe7155e97489b038b00cf18039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  _joystick: {fileID: 0}
-  _rotationSpeed: 120
 --- !u!114 &122902939784913593
 MonoBehaviour:
   m_ObjectHideFlags: 0
